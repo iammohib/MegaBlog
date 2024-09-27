@@ -43,7 +43,7 @@ export class AuthService {
   // Fetch the currently logged-in user's details
   async getCurrentUser() {
     try {
-        return await this.account.get()
+      return await this.account.get();
     } catch (error) {
       console.error("Error fetching current user:", error);
       return null;
@@ -51,11 +51,11 @@ export class AuthService {
   }
 
   // Log out the user by deleting all sessions
-  async logout(){
+  async logout() {
     try {
-        await this.account.deleteSessions();
+      await this.account.deleteSessions();
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 }
