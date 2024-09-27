@@ -13,7 +13,7 @@ export class AuthService {
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProductId);
 
-    const account = new Account(this.client);
+    this.account = new Account(this.client);
   }
 
   // Create a new account and log in if successful
