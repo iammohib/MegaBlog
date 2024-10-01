@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Home, Login, Signup, AddPost, EditPost, Post, AllPost } from './pages/index.js'
 import { AuthLayout } from './components/index.js'
 
+// Define routes using createBrowserRouter, associating paths with components
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: (
+          // AuthLayout to check authentication state
           <AuthLayout authentication={false}>
             <Login />
           </AuthLayout>
@@ -36,6 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/all-post",
         element: (
+          // Protected route to view all posts, requires authentication
           <AuthLayout authentication>
             <AllPost />
           </AuthLayout>
@@ -65,9 +68,11 @@ const router = createBrowserRouter([
   },
 ])
 
+// Render the application, wrapping it in StrictMode for additional checks, and Redux Provider for state management
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
+      {/* Provide routing functionality to the app */}
       <RouterProvider router={router} />
     </Provider>
   </StrictMode>,

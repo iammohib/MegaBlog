@@ -25,8 +25,10 @@ function App() {
   return !loading ? (
     <div>
       <div>
+        {/* Render the Header, Outlet (for nested routes), and Footer components */}
         <Header />
         <main>
+          {/* Renders the child components based on the current route */}
           <Outlet />
         </main>
         <Footer />
